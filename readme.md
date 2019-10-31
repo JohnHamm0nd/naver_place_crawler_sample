@@ -13,13 +13,13 @@ import csv
 ```
 #### 필드체크
 필드가　비어있는지　확인.　비어있으면　null을　채워야　필드가　당겨지는　문제가　발생하지　않음．
-```
+```python
 def key_check(dic, key):
     if f'{key}' in dic:
         return dic[f'{key}']
 ```
 #### 크롤러
-```
+```python
 def np_scrap(menu, gu, pages):    
     out = False
     for page in range(1, pages, 5):
@@ -62,7 +62,7 @@ def np_scrap(menu, gu, pages):
                         non_addr.append(i)
 ```
 #### 크롤링　샘플
-```
+```python
 idd = []
 name = []
 businessCategory = []
@@ -92,10 +92,10 @@ data = pd.DataFrame(data={"menu": 1, "id": idd, "name": name, "businessCategory"
                       "imageSrc": imageSrc }, columns=col)
 ```
 #### 중복데이터　제거
-```
+```python
 data = data.drop_duplicates(subset='id')
 ```
 #### csv파일로　저장
-```
+```python
 data.to_csv('naver_place_sample.csv', encoding='utf-8')
 ```
