@@ -4,7 +4,7 @@
 트레블러리에　사용한　크롤러　중　일부를　사용하여　샘플　크롤러를　만들었다．
 Selenium을　사용하지　않아서　속도가　빠르다．
 #### 라이브러리
-```
+```python
 import urllib
 from bs4 import BeautifulSoup
 import pandas as pd
