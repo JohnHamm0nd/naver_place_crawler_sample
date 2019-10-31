@@ -1,9 +1,9 @@
 #naver_place_crawler_sample
 
-#### 트레블러리　크롤러　샘플
-트레블러리에　사용한　크롤러　중　일부만　사용하여　샘플　크롤러를　만들었다．
+### 트레블러리　크롤러　샘플
+트레블러리에　사용한　크롤러　중　일부를　사용하여　샘플　크롤러를　만들었다．
 Selenium을　사용하지　않아서　속도가　빠르다．
-##### 라이브러리
+#### 라이브러리
 ```
 import urllib
 from bs4 import BeautifulSoup
@@ -11,14 +11,14 @@ import pandas as pd
 import json
 import csv
 ```
-##### 필드체크
+#### 필드체크
 필드가　비어있는지　확인.　비어있으면　null을　채워야　필드가　당겨지는　문제가　발생하지　않음．
 ```
 def key_check(dic, key):
     if f'{key}' in dic:
         return dic[f'{key}']
 ```
-##### 크롤러
+#### 크롤러
 ```
 def np_scrap(menu, gu, pages):    
     out = False
@@ -61,7 +61,7 @@ def np_scrap(menu, gu, pages):
                     else:
                         non_addr.append(i)
 ```
-##### 크롤링　샘플
+#### 크롤링　샘플
 ```
 idd = []
 name = []
@@ -91,11 +91,11 @@ data = pd.DataFrame(data={"menu": 1, "id": idd, "name": name, "businessCategory"
                       "roadAddr": roadAddr,"commonAddr": commonAddr, "addr": addr, "phone": phone,  "x": x, "y": y,
                       "imageSrc": imageSrc }, columns=col)
 ```
-##### 중복데이터　제거
+#### 중복데이터　제거
 ```
 data = data.drop_duplicates(subset='id')
 ```
-##### csv파일로　저장
+#### csv파일로　저장
 ```
 data.to_csv('naver_place_sample.csv', encoding='utf-8')
 ```
